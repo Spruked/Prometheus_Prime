@@ -1,0 +1,137 @@
+
+openapi: 3.0.3
+info:
+  title: EchoStack NFT API
+  version: 1.0.0
+  description: >
+    Backend API for minting, transferring, and querying NFT certificates tied to EchoStack Anchor Nodes.
+    Includes override memory, ethical lineage, and metadata embedding for traceable AI ownership.
+
+servers:
+  - url: https://api.prometheusprime.ai
+
+paths:
+  /api/mintNFT:
+    post:
+      summary: Mint a new NFT certificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MintRequest'
+      responses:
+        '200':
+          description: NFT minted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MintResponse'
+
+  /api/transferNFT:
+    post:
+      summary: Transfer ownership of an existing NFT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRequest'
+      responses:
+        '200':
+          description: NFT ownership transferred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferResponse'
+
+  /api/getNFTMetadata/{tokenId}:
+    get:
+      summary: Get metadata for a given NFT
+      parameters:
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: NFT metadata retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NFTMetadata'
+
+components:
+  schemas:
+    MintRequest:
+      type: object
+      required: [userId, anchorNodeId, certificateFront, certificateBack, metadata]
+      properties:
+        userId:
+          type: string
+        anchorNodeId:
+          type: string
+        certificateFront:
+          type: string
+          description: Base64 encoded image of the front certificate
+        certificateBack:
+          type: string
+          description: Base64 encoded image of the back certificate
+        metadata:
+          type: object
+          properties:
+            ethicalScore:
+              type: integer
+            overrideCount:
+              type: integer
+            toneProfile:
+              type: string
+            generatedBy:
+              type: string
+
+    MintResponse:
+      type: object
+      properties:
+        tokenId:
+          type: string
+        ipfsHash:
+          type: string
+        transactionId:
+          type: string
+
+    TransferRequest:
+      type: object
+      required: [tokenId, fromUser, toUser]
+      properties:
+        tokenId:
+          type: string
+        fromUser:
+          type: string
+        toUser:
+          type: string
+        transferNote:
+          type: string
+
+    TransferResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+
+    NFTMetadata:
+      type: object
+      properties:
+        anchorNodeId:
+          type: string
+        ethicalScore:
+          type: integer
+        overrideLogURL:
+          type: string
+        mintDate:
+          type: string
+          format: date
+        version:
+          type: string

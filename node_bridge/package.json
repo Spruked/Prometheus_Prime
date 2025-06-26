@@ -1,0 +1,16 @@
+{
+  "name": "node_bridge",
+  "version": "1.0.0",
+  "main": "helix_ws_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "ws": "^8.18.2"
+  }
+}

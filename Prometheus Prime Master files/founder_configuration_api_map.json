@@ -1,0 +1,28 @@
+{
+    "Ethics & Axioms": {
+        "GET /api/axioms": "Load full PAS & WAM structure",
+        "POST /api/axioms": "Add new axiom or update weights",
+        "DELETE /api/axioms/:id": "Remove obsolete axiom",
+        "GET /api/axioms/graph": "Visualize inheritance tree"
+    },
+    "Overrides Log": {
+        "GET /api/overrides": "List with timestamps, types",
+        "GET /api/overrides/:id": "Get full override diff, tone log, result",
+        "POST /api/system/replay-scenario": "Replay override for training"
+    },
+    "Tone Memory (TOML)": {
+        "GET /api/toml/history": "Show tone shift frequency + success rates",
+        "POST /api/toml/train": "Submit manual override samples for learning",
+        "GET /api/toml/graph": "Visual trend of tonal drift"
+    },
+    "NFT Identity": {
+        "GET /api/nft/anchor-node": "Show NFT lineage + ethical score",
+        "POST /api/nft/certify": "Submit config for new certification",
+        "GET /api/nft/log": "Immutable history + audit chain"
+    },
+    "Export Center": {
+        "GET /api/export/ethics-log": "Print-ready PDF",
+        "GET /api/export/override-matrix": "NFT-ready JSON metadata",
+        "GET /api/export/nft-bundle": "Blockchain submission XML"
+    }
+}

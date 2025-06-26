@@ -1,0 +1,38 @@
+{
+    "ai_id": "P2459876CAL",
+    "race": "Promethean",
+    "name": "Caleon",
+    "tier": "Apprentice AI",
+    "status": "Active",
+    "bonded_to": "Bryan Spruk",
+    "assigned_to": "Abby Spruk",
+    "date_created": "2025-06-15T03:06:20.867214",
+    "royalty_structure": {
+        "founding_issuer": {
+            "initial_sales": "5%",
+            "ongoing_royalty": "3%"
+        },
+        "original_owner": {
+            "second_sale": "5%",
+            "licensing_revenue": "3%"
+        },
+        "second_owner": {
+            "third_sale_only": true,
+            "licensing_revenue": "3%"
+        },
+        "heirs": {
+            "sale_proceeds": true,
+            "royalties": false
+        }
+    },
+    "evolution_tiers": {
+        "current": "Apprentice AI",
+        "path": [
+            "Apprentice AI",
+            "Journeyman AI",
+            "Master AI",
+            "Architect AI",
+            "Sovereign AI"
+        ]
+    }
+}

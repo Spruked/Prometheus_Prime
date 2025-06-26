@@ -1,0 +1,15 @@
+import json, os, time
+from pathlib import Path
+
+def log_metric(event_type, payload):
+    log_path = Path("metrics") / "metrics.log"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "type": event_type,
+        "ts": int(time.time()),
+        "payload": payload
+    }
+    with open(log_path, "a") as f:
+        f.write(json.dumps(entry) + "\n")
+
+log_metric("symbol_injected", {"symbol": symbol, "meaning": meaning})

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caleon Prime Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/dashboard.js" defer></script>
+</head>
+<body>
+    <h1>🚀 Caleon Prime Dashboard</h1>
+    <p>Status: <span id="status">Listening...</span></p>
+
+    <div>
+        <textarea id="input" placeholder="Type your inquiry to Prometheus..."></textarea>
+        <button onclick="sendHelix()">Run Helix</button>
+    </div>
+
+    <div>
+        <h3>Response:</h3>
+        <pre id="response"></pre>
+    </div>
+</body>
+</html>

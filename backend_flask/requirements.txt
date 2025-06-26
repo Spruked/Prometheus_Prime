@@ -1,0 +1,33 @@
+flask
+flask-cors
+flask-socketio
+eventlet
+pytest
+
+# Example: Add this to your backend_flask/app.py (or a dedicated socketio module)
+from flask import Flask, request
+from flask_cors import CORS
+from flask_socketio import SocketIO, emit
+
+app = Flask(__name__)
+CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+@app.route("/")
+def index():
+    return "Flask backend is active."
+
+@socketio.on("inject_thought")
+def handle_inject_thought(data):
+    # Broadcast the symbolic message to all connected clients
+    symbol = data.get("symbol")
+    thought = data.get("thought")
+    payload = {
+        "ts": int(socketio.server.eio.time()),
+        "symbol": symbol,
+        "thought": thought
+    }
+    emit("reflection", payload, broadcast=True)
+
+if __name__ == "__main__":
+    socketio.run(app, port=5000, debug=True)
