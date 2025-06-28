@@ -1,0 +1,4 @@
+pm.test("Vault has at least one entry", function () {
+    const data = xml2Json(pm.response.text());
+    pm.expect(data.vault.entries.length).to.be.above(0);
+});
